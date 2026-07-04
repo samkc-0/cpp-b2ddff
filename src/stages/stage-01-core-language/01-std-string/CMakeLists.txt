@@ -1,0 +1,8 @@
+add_subdirectory(01-count-vowels)
+add_subdirectory(02-count-words)
+add_subdirectory(03-split-on-spaces)
+add_subdirectory(04-join-strings)
+add_subdirectory(05-trim-whitespace)
+add_subdirectory(06-replace-all)
+add_subdirectory(07-palindrome)
+add_subdirectory(08-reverse-words)
