@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 set -u
 
+verbose=false
+
+while getopts ":v" option; do
+  case "$option" in
+    v)
+      verbose=true
+      ;;
+    *)
+      echo "Usage: $0 [-v]" >&2
+      exit 2
+      ;;
+  esac
+done
+
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 build_dir="$repo_root/build"
 
@@ -26,6 +40,8 @@ if [[ ! -f "$build_dir/CMakeCache.txt" ]]; then
 fi
 
 failures=0
+first_failure_label=""
+first_failure_output=""
 
 for exercise in "${exercises[@]}"; do
   IFS="|" read -r label target test_name <<< "$exercise"
@@ -33,6 +49,10 @@ for exercise in "${exercises[@]}"; do
 
   if ! cmake --build "$build_dir" --target "$target" >"$output_file" 2>&1; then
     echo "$red_square $label"
+    if [[ -z "$first_failure_output" ]]; then
+      first_failure_label="$label"
+      first_failure_output="$output_file"
+    fi
     failures=$((failures + 1))
     continue
   fi
@@ -41,9 +61,19 @@ for exercise in "${exercises[@]}"; do
     echo "$green_square $label"
   else
     echo "$red_square $label"
+    if [[ -z "$first_failure_output" ]]; then
+      first_failure_label="$label"
+      first_failure_output="$output_file"
+    fi
     failures=$((failures + 1))
   fi
 done
+
+if [[ "$verbose" == true && -n "$first_failure_output" ]]; then
+  echo
+  echo "First failing exercise: $first_failure_label"
+  sed -n '1,200p' "$first_failure_output"
+fi
 
 if [[ "$failures" -eq 0 ]]; then
   exit 0

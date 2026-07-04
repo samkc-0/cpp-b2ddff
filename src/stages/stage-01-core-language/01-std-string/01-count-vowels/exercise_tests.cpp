@@ -25,7 +25,7 @@ int main() {
 
     try {
         EXPECT_EQUAL(count_vowels("hello world"), 3U);
-        EXPECT_EQUAL(count_vowels("AEIOU and sometimes y"), 8U);
+        EXPECT_EQUAL(count_vowels("AEIOU and sometimes y"), 10U);
         EXPECT_EQUAL(count_vowels("rhythm"), 0U);
         EXPECT_EQUAL(count_vowels(""), 0U);
     } catch (const std::exception& exception) {
