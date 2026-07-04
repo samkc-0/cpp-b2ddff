@@ -1,9 +1,3 @@
 # Stage 10 — Design
 
-Refactor previous projects to use:
-
-* Composition instead of inheritance
-* Interfaces
-* Dependency injection
-* RAII everywhere
-* Value semantics where possible
+* [Refactoring](stage-10-design/01-refactoring.md)

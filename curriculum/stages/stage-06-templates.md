@@ -1,14 +1,3 @@
 # Stage 6 — Templates
 
-Write generic:
-
-* Max function
-* Min function
-* Swap
-* Clamp
-* Stack
-* Queue
-* Ring buffer
-* Matrix
-* Optional
-* Pair
+* [Generic Types and Functions](stage-06-templates/01-generic-types-and-functions.md)

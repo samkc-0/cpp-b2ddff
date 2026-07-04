@@ -1,9 +1,3 @@
 # Stage 8 — chrono
 
-Exercises:
-
-* Stopwatch
-* Countdown timer
-* Benchmark sorting algorithms
-* Measure function execution
-* Timestamp log entries
+* [Exercises](stage-08-chrono/01-exercises.md)
