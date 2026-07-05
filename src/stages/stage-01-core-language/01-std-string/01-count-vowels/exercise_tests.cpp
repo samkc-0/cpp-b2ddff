@@ -12,7 +12,7 @@ template <typename Actual, typename Expected>
 void expect_equal(const Actual& actual, const Expected& expected, int line) {
     if (!(actual == expected)) {
         ++failures;
-        std::cerr << "Line " << line << ": assertion failed\n";
+        std::cerr << "Line " << line << ": expected " << expected << ", got " << actual << "\n";
     }
 }
 

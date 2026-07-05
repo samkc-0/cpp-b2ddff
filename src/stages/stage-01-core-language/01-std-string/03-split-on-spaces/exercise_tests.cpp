@@ -10,11 +10,23 @@ namespace {
 
 int failures = 0;
 
+std::ostream& operator<<(std::ostream& stream, const std::vector<std::string>& values) {
+    stream << "{";
+    for (std::size_t i = 0; i < values.size(); ++i) {
+        if (i != 0) {
+            stream << ", ";
+        }
+        stream << '"' << values[i] << '"';
+    }
+    stream << "}";
+    return stream;
+}
+
 template <typename Actual, typename Expected>
 void expect_equal(const Actual& actual, const Expected& expected, int line) {
     if (!(actual == expected)) {
         ++failures;
-        std::cerr << "Line " << line << ": assertion failed\n";
+        std::cerr << "Line " << line << ": expected " << expected << ", got " << actual << "\n";
     }
 }
 

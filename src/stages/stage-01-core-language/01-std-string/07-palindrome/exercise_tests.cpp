@@ -11,14 +11,14 @@ int failures = 0;
 void expect_true(bool actual, int line) {
     if (!actual) {
         ++failures;
-        std::cerr << "Line " << line << ": assertion failed\n";
+        std::cerr << "Line " << line << ": expected true, got false\n";
     }
 }
 
 void expect_false(bool actual, int line) {
     if (actual) {
         ++failures;
-        std::cerr << "Line " << line << ": assertion failed\n";
+        std::cerr << "Line " << line << ": expected false, got true\n";
     }
 }
 
