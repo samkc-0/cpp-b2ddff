@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -u
 
-verbose=false
+verbosity=0
 
 while getopts ":v" option; do
   case "$option" in
     v)
-      verbose=true
+      verbosity=$((verbosity + 1))
       ;;
     *)
       echo "Usage: $0 [-v]" >&2
@@ -69,10 +69,14 @@ for exercise in "${exercises[@]}"; do
   fi
 done
 
-if [[ "$verbose" == true && -n "$first_failure_output" ]]; then
+if [[ "$verbosity" -ge 1 && -n "$first_failure_output" ]]; then
   echo
   echo "First failing exercise: $first_failure_label"
-  sed -n '1,200p' "$first_failure_output"
+  if [[ "$verbosity" -ge 2 ]]; then
+    cat "$first_failure_output"
+  else
+    sed -n '1,200p' "$first_failure_output"
+  fi
 fi
 
 if [[ "$failures" -eq 0 ]]; then

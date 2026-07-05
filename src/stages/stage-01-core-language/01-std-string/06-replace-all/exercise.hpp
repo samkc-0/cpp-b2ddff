@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <regex>
 #include <string_view>
 
 namespace stage_01::std_string::replace_all_exercise {
