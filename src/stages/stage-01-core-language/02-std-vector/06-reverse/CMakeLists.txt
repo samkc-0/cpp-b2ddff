@@ -1,0 +1,5 @@
+add_library(stage_01_std_vector_06_reverse exercise.cpp)
+target_include_directories(stage_01_std_vector_06_reverse PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_01_std_vector_06_reverse_tests exercise_tests.cpp)
+target_link_libraries(stage_01_std_vector_06_reverse_tests PRIVATE stage_01_std_vector_06_reverse)
+add_test(NAME stage_01_std_vector_06_reverse COMMAND stage_01_std_vector_06_reverse_tests)

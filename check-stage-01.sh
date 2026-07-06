@@ -30,6 +30,15 @@ exercises=(
   "Replace all|stage_01_std_string_06_replace_all_tests|stage_01_std_string_06_replace_all"
   "Palindrome|stage_01_std_string_07_palindrome_tests|stage_01_std_string_07_palindrome"
   "Reverse words|stage_01_std_string_08_reverse_words_tests|stage_01_std_string_08_reverse_words"
+  "Sum elements|stage_01_std_vector_01_sum_elements_tests|stage_01_std_vector_01_sum_elements"
+  "Running totals|stage_01_std_vector_02_running_totals_tests|stage_01_std_vector_02_running_totals"
+  "Filter values|stage_01_std_vector_03_filter_values_tests|stage_01_std_vector_03_filter_values"
+  "Remove duplicates|stage_01_std_vector_04_remove_duplicates_tests|stage_01_std_vector_04_remove_duplicates"
+  "Rotate left/right|stage_01_std_vector_05_rotate_left_right_tests|stage_01_std_vector_05_rotate_left_right"
+  "Reverse vector|stage_01_std_vector_06_reverse_tests|stage_01_std_vector_06_reverse"
+  "Binary search|stage_01_std_vector_07_binary_search_tests|stage_01_std_vector_07_binary_search"
+  "Merge sorted vectors|stage_01_std_vector_08_merge_sorted_vectors_tests|stage_01_std_vector_08_merge_sorted_vectors"
+  "Sliding window average|stage_01_std_vector_09_sliding_window_average_tests|stage_01_std_vector_09_sliding_window_average"
 )
 
 if [[ ! -f "$build_dir/CMakeCache.txt" ]]; then

@@ -9,3 +9,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 enable_testing()
 
 add_subdirectory(src/stages/stage-01-core-language/01-std-string)
+add_subdirectory(src/stages/stage-01-core-language/02-std-vector)
