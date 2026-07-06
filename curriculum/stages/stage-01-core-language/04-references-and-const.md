@@ -1,5 +1,12 @@
 # References & const
 
-* Rewrite APIs to avoid unnecessary copies
-* Convert pass-by-value to pass-by-reference
-* Add const everywhere appropriate
+* Total length
+* Longest string
+* Append suffix
+* Increment all
+* Clamp in place
+* Swap values
+* Copy if greater
+* Scale values
+* Contains word
+* Update if found

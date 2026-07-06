@@ -10,3 +10,5 @@ enable_testing()
 
 add_subdirectory(src/stages/stage-01-core-language/01-std-string)
 add_subdirectory(src/stages/stage-01-core-language/02-std-vector)
+add_subdirectory(src/stages/stage-01-core-language/03-std-optional)
+add_subdirectory(src/stages/stage-01-core-language/04-references-and-const)
