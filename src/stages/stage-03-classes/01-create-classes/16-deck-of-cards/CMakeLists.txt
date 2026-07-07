@@ -1,0 +1,5 @@
+add_library(stage_03_classes_16_deck_of_cards exercise.cpp)
+target_include_directories(stage_03_classes_16_deck_of_cards PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_16_deck_of_cards_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_16_deck_of_cards_tests PRIVATE stage_03_classes_16_deck_of_cards)
+add_test(NAME stage_03_classes_16_deck_of_cards COMMAND stage_03_classes_16_deck_of_cards_tests)

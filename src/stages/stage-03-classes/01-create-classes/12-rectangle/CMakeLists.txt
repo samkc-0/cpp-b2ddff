@@ -1,0 +1,5 @@
+add_library(stage_03_classes_12_rectangle exercise.cpp)
+target_include_directories(stage_03_classes_12_rectangle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_12_rectangle_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_12_rectangle_tests PRIVATE stage_03_classes_12_rectangle)
+add_test(NAME stage_03_classes_12_rectangle COMMAND stage_03_classes_12_rectangle_tests)

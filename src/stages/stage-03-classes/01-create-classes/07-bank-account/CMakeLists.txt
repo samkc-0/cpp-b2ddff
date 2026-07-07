@@ -1,0 +1,5 @@
+add_library(stage_03_classes_07_bank_account exercise.cpp)
+target_include_directories(stage_03_classes_07_bank_account PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_07_bank_account_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_07_bank_account_tests PRIVATE stage_03_classes_07_bank_account)
+add_test(NAME stage_03_classes_07_bank_account COMMAND stage_03_classes_07_bank_account_tests)

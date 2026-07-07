@@ -1,0 +1,5 @@
+add_library(stage_03_classes_06_stopwatch exercise.cpp)
+target_include_directories(stage_03_classes_06_stopwatch PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_06_stopwatch_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_06_stopwatch_tests PRIVATE stage_03_classes_06_stopwatch)
+add_test(NAME stage_03_classes_06_stopwatch COMMAND stage_03_classes_06_stopwatch_tests)

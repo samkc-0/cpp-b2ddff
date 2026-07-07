@@ -1,0 +1,5 @@
+add_library(stage_03_classes_15_chess_piece exercise.cpp)
+target_include_directories(stage_03_classes_15_chess_piece PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_15_chess_piece_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_15_chess_piece_tests PRIVATE stage_03_classes_15_chess_piece)
+add_test(NAME stage_03_classes_15_chess_piece COMMAND stage_03_classes_15_chess_piece_tests)

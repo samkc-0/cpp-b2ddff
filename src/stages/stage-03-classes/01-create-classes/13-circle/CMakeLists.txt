@@ -1,0 +1,5 @@
+add_library(stage_03_classes_13_circle exercise.cpp)
+target_include_directories(stage_03_classes_13_circle PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_13_circle_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_13_circle_tests PRIVATE stage_03_classes_13_circle)
+add_test(NAME stage_03_classes_13_circle COMMAND stage_03_classes_13_circle_tests)

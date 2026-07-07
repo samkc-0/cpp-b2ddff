@@ -1,0 +1,5 @@
+add_library(stage_03_classes_05_timer exercise.cpp)
+target_include_directories(stage_03_classes_05_timer PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_05_timer_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_05_timer_tests PRIVATE stage_03_classes_05_timer)
+add_test(NAME stage_03_classes_05_timer COMMAND stage_03_classes_05_timer_tests)

@@ -1,0 +1,5 @@
+add_library(stage_03_classes_09_student exercise.cpp)
+target_include_directories(stage_03_classes_09_student PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(stage_03_classes_09_student_tests exercise_tests.cpp)
+target_link_libraries(stage_03_classes_09_student_tests PRIVATE stage_03_classes_09_student)
+add_test(NAME stage_03_classes_09_student COMMAND stage_03_classes_09_student_tests)

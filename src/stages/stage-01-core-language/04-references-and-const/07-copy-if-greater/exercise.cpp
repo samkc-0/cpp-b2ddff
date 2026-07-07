@@ -4,13 +4,17 @@
 
 namespace stage_01::references_const::copy_if_greater_exercise {
 
+// Concept: Mix const and non-const references to express intent.
+// Practice: Read from source without modifying it, and append results to
+// destination.
+// Watch for: Do not clear destination; append to what the caller already has.
+//
 // Task: Append values from source that are greater than threshold to destination.
-// Read source by const reference and mutate destination by non-const reference.
 void copy_if_greater(const std::vector<int>& source, std::vector<int>& destination, int threshold) {
-    (void)source;
-    (void)destination;
-    (void)threshold;
-    throw std::logic_error("TODO: implement copy_if_greater");
+    for (auto& x : source) {
+        if (x > threshold)
+            destination.push_back(x);
+    }
 }
 
 }  // namespace stage_01::references_const::copy_if_greater_exercise
