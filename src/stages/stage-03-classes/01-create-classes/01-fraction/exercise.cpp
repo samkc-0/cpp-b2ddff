@@ -1,6 +1,7 @@
 #include "exercise.hpp"
 
 #include <stdexcept>
+#include <numeric>
 
 namespace stage_03::classes::fraction_exercise {
 
@@ -11,25 +12,34 @@ namespace stage_03::classes::fraction_exercise {
 //
 // Task: Implement a Fraction class that stores reduced numerator/denominator.
 Fraction::Fraction(int numerator, int denominator) : numerator_(numerator), denominator_(denominator) {
-    throw std::logic_error("TODO: implement Fraction constructor");
+    if (denominator == 0)
+        throw std::logic_error("zero dvision!!");
+    if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
+    int q = std::gcd(numerator, denominator);
+    numerator_ = numerator / q;
+    denominator_ = denominator / q;
 }
 
 int Fraction::numerator() const {
-    throw std::logic_error("TODO: implement numerator");
+    return numerator_;
 }
 
 int Fraction::denominator() const {
-    throw std::logic_error("TODO: implement denominator");
+    return denominator_;
 }
 
 Fraction Fraction::operator+(const Fraction& other) const {
-    (void)other;
-    throw std::logic_error("TODO: implement operator+");
+    int d = denominator() * other.denominator();
+    int a = numerator() * other.denominator();
+    int b = other.numerator() * denominator();
+    return Fraction(a + b, d);
 }
 
 bool Fraction::operator==(const Fraction& other) const {
-    (void)other;
-    throw std::logic_error("TODO: implement operator==");
+    return numerator_ == other.numerator() && denominator_ == other.denominator();
 }
 
 }  // namespace stage_03::classes::fraction_exercise

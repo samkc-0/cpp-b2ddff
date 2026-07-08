@@ -1,6 +1,7 @@
 #include "exercise.hpp"
 
 #include <stdexcept>
+#include <cmath>
 
 namespace stage_03::classes::complex_number_exercise {
 
@@ -10,29 +11,32 @@ namespace stage_03::classes::complex_number_exercise {
 //
 // Task: Implement ComplexNumber with real/imaginary parts and addition.
 ComplexNumber::ComplexNumber(double real, double imaginary) : real_(real), imaginary_(imaginary) {
-    throw std::logic_error("TODO: implement ComplexNumber constructor");
+    real_ = real;
+    imaginary_ = imaginary;
 }
 
 double ComplexNumber::real() const {
-    throw std::logic_error("TODO: implement real");
+    return real_;
 }
 
 double ComplexNumber::imaginary() const {
-    throw std::logic_error("TODO: implement imaginary");
+    return imaginary_;
 }
 
 double ComplexNumber::magnitude() const {
-    throw std::logic_error("TODO: implement magnitude");
+    double y = real_ * real_ + imaginary_ * imaginary_;
+    return std::sqrt(y);
 }
 
 ComplexNumber ComplexNumber::operator+(const ComplexNumber& other) const {
     (void)other;
-    throw std::logic_error("TODO: implement operator+");
+    double r = real_ + other.real();
+    double i = imaginary_ + other.imaginary();
+    return ComplexNumber(r, i);
 }
 
 bool ComplexNumber::operator==(const ComplexNumber& other) const {
-    (void)other;
-    throw std::logic_error("TODO: implement operator==");
+    return real_ == other.real() && imaginary_ == other.imaginary();
 }
 
 }  // namespace stage_03::classes::complex_number_exercise
