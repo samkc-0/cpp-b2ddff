@@ -1,5 +1,7 @@
 #include "exercise.hpp"
 
+#include <iomanip>
+#include <sstream>
 #include <stdexcept>
 
 namespace stage_03::classes::time_exercise {
@@ -10,13 +12,32 @@ namespace stage_03::classes::time_exercise {
 //
 // Task: Implement a Time class with HH:MM:SS formatting.
 Time::Time(int hour, int minute, int second) : hour_(hour), minute_(minute), second_(second) {
-    throw std::logic_error("TODO: implement Time constructor");
+    if (hour < 0 || hour > 23) {
+        throw std::logic_error("hour must be between 0 and 23");
+    }
+    if (minute < 0 || minute > 59) {
+        throw std::logic_error("minute must be between 0 and 59");
+    }
+    if (second < 0 || second > 59) {
+        throw std::logic_error("second must be between 0 and 59");
+    }
 }
 
-int Time::hour() const { throw std::logic_error("TODO: implement hour"); }
-int Time::minute() const { throw std::logic_error("TODO: implement minute"); }
-int Time::second() const { throw std::logic_error("TODO: implement second"); }
-int Time::seconds_since_midnight() const { throw std::logic_error("TODO: implement seconds_since_midnight"); }
-std::string Time::to_string() const { throw std::logic_error("TODO: implement to_string"); }
+int Time::hour() const { return hour_; }
+int Time::minute() const { return minute_; }
+int Time::second() const { return second_; }
+
+int Time::seconds_since_midnight() const {
+    return hour_ * 60 * 60 + minute_ * 60 + second_;
+}
+
+std::string Time::to_string() const {
+    std::ostringstream output;
+    output << std::setfill('0')
+           << std::setw(2) << hour_ << ':'
+           << std::setw(2) << minute_ << ':'
+           << std::setw(2) << second_;
+    return output.str();
+}
 
 }  // namespace stage_03::classes::time_exercise

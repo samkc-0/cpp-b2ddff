@@ -10,12 +10,28 @@ namespace stage_03::classes::matrix_exercise {
 //
 // Task: Implement a 2x2 integer matrix.
 Matrix2x2::Matrix2x2(int a00, int a01, int a10, int a11) : values_{{a00, a01}, {a10, a11}} {
-    throw std::logic_error("TODO: implement Matrix2x2 constructor");
 }
 
-int Matrix2x2::at(int row, int column) const { (void)row; (void)column; throw std::logic_error("TODO: implement at"); }
-int Matrix2x2::determinant() const { throw std::logic_error("TODO: implement determinant"); }
-Matrix2x2 Matrix2x2::operator+(const Matrix2x2& other) const { (void)other; throw std::logic_error("TODO: implement operator+"); }
-bool Matrix2x2::operator==(const Matrix2x2& other) const { (void)other; throw std::logic_error("TODO: implement operator=="); }
+int Matrix2x2::at(int row, int column) const {
+    if (row < 0 || row >= 2 || column < 0 || column >= 2)
+        throw std::logic_error("index error");
+    return values_[row][column];
+}
+int Matrix2x2::determinant() const {
+    return values_[0][0] * values_[1][1] - values_[0][1] * values_[1][0];
+}
+Matrix2x2 Matrix2x2::operator+(const Matrix2x2& other) const {
+   int a = at(0, 0) + other.at(0, 0);
+   int b = at(0, 1) + other.at(0, 1);
+   int c = at(1, 0) + other.at(1, 0);
+   int d = at(1, 1) + other.at(1, 1);
+   return Matrix2x2(a, b, c, d);
+}
+bool Matrix2x2::operator==(const Matrix2x2& other) const {
+   return at(0, 0) == other.at(0, 0)
+       && at(0, 1) == other.at(0, 1)
+       && at(1, 0) == other.at(1, 0)
+       && at(1, 1) == other.at(1, 1);
+}
 
 }  // namespace stage_03::classes::matrix_exercise

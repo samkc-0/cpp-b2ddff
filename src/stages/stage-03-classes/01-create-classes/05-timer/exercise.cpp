@@ -10,13 +10,27 @@ namespace stage_03::classes::timer_exercise {
 //
 // Task: Implement a countdown Timer measured in seconds.
 Timer::Timer(int duration_seconds) : duration_seconds_(duration_seconds), remaining_seconds_(duration_seconds) {
-    throw std::logic_error("TODO: implement Timer constructor");
+    if (duration_seconds < 0) {
+        throw std::logic_error("duration must not be negative");
+    }
 }
 
-int Timer::duration_seconds() const { throw std::logic_error("TODO: implement duration_seconds"); }
-int Timer::remaining_seconds() const { throw std::logic_error("TODO: implement remaining_seconds"); }
-bool Timer::is_finished() const { throw std::logic_error("TODO: implement is_finished"); }
-void Timer::tick(int seconds) { (void)seconds; throw std::logic_error("TODO: implement tick"); }
-void Timer::reset() { throw std::logic_error("TODO: implement reset"); }
+int Timer::duration_seconds() const { return duration_seconds_; }
+int Timer::remaining_seconds() const { return remaining_seconds_; }
+bool Timer::is_finished() const { return remaining_seconds_ == 0; }
+
+void Timer::tick(int seconds) {
+    if (seconds < 0) {
+        throw std::logic_error("tick amount must not be negative");
+    }
+
+    if (seconds >= remaining_seconds_) {
+        remaining_seconds_ = 0;
+    } else {
+        remaining_seconds_ -= seconds;
+    }
+}
+
+void Timer::reset() { remaining_seconds_ = duration_seconds_; }
 
 }  // namespace stage_03::classes::timer_exercise

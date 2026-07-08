@@ -12,13 +12,15 @@ namespace stage_03::classes::book_exercise {
 // Task: Implement Book; a book is classic if it is at least 50 years old.
 Book::Book(std::string title, std::string author, int publication_year)
     : title_(std::move(title)), author_(std::move(author)), publication_year_(publication_year) {
-    throw std::logic_error("TODO: implement Book constructor");
 }
 
-const std::string& Book::title() const { throw std::logic_error("TODO: implement title"); }
-const std::string& Book::author() const { throw std::logic_error("TODO: implement author"); }
-int Book::publication_year() const { throw std::logic_error("TODO: implement publication_year"); }
-bool Book::is_classic(int current_year) const { (void)current_year; throw std::logic_error("TODO: implement is_classic"); }
-bool Book::operator==(const Book& other) const { (void)other; throw std::logic_error("TODO: implement operator=="); }
-
+const std::string& Book::title() const { return title_; }
+const std::string& Book::author() const { return author_; }
+int Book::publication_year() const { return publication_year_; }
+bool Book::is_classic(int current_year) const { return current_year - publication_year_ >= 50; }
+bool Book::operator==(const Book& other) const {
+    return title_ == other.title()
+        && author_ == other.author()
+        && publication_year_ == other.publication_year();
+}
 }  // namespace stage_03::classes::book_exercise

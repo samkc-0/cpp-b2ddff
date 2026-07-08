@@ -10,12 +10,17 @@ namespace stage_03::classes::wallet_exercise {
 //
 // Task: Implement a Wallet that stores a number of cents.
 Wallet::Wallet() : cents_(0) {
-    throw std::logic_error("TODO: implement Wallet constructor");
 }
 
-int Wallet::cents() const { throw std::logic_error("TODO: implement cents"); }
-void Wallet::add_cents(int amount) { (void)amount; throw std::logic_error("TODO: implement add_cents"); }
-bool Wallet::spend_cents(int amount) { (void)amount; throw std::logic_error("TODO: implement spend_cents"); }
-bool Wallet::is_empty() const { throw std::logic_error("TODO: implement is_empty"); }
+int Wallet::cents() const { return cents_; }
+void Wallet::add_cents(int amount) { cents_ += amount; }
+bool Wallet::spend_cents(int amount) {
+    if (amount <= cents_) {
+        cents_ -= amount;
+        return true;
+    }
+    return false;
+}
+bool Wallet::is_empty() const { return cents_ == 0; }
 
 }  // namespace stage_03::classes::wallet_exercise

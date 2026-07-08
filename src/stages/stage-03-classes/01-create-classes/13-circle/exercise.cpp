@@ -1,6 +1,7 @@
 #include "exercise.hpp"
 
 #include <stdexcept>
+#include <numbers>
 
 namespace stage_03::classes::circle_exercise {
 
@@ -10,12 +11,11 @@ namespace stage_03::classes::circle_exercise {
 //
 // Task: Implement Circle.
 Circle::Circle(double radius) : radius_(radius) {
-    throw std::logic_error("TODO: implement Circle constructor");
 }
 
-double Circle::radius() const { throw std::logic_error("TODO: implement radius"); }
-double Circle::diameter() const { throw std::logic_error("TODO: implement diameter"); }
-double Circle::circumference() const { throw std::logic_error("TODO: implement circumference"); }
-double Circle::area() const { throw std::logic_error("TODO: implement area"); }
+double Circle::radius() const { return radius_; }
+double Circle::diameter() const { return 2 * radius_; }
+double Circle::circumference() const { return std::numbers::pi * diameter(); }
+double Circle::area() const { return std::numbers::pi * radius_ * radius_; }
 
 }  // namespace stage_03::classes::circle_exercise

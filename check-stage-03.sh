@@ -38,6 +38,16 @@ exercises=(
   "Matrix|stage_03_classes_14_matrix_tests|stage_03_classes_14_matrix"
   "Chess piece|stage_03_classes_15_chess_piece_tests|stage_03_classes_15_chess_piece"
   "Deck of cards|stage_03_classes_16_deck_of_cards_tests|stage_03_classes_16_deck_of_cards"
+  "Default constructor|stage_03_practice_01_default_constructor_tests|stage_03_practice_01_default_constructor"
+  "Initialization list|stage_03_practice_02_initialization_list_tests|stage_03_practice_02_initialization_list"
+  "Member functions|stage_03_practice_03_member_functions_tests|stage_03_practice_03_member_functions"
+  "Const methods|stage_03_practice_04_const_methods_tests|stage_03_practice_04_const_methods"
+  "Equality operator|stage_03_practice_05_equality_operator_tests|stage_03_practice_05_equality_operator"
+  "Less-than operator|stage_03_practice_06_less_than_operator_tests|stage_03_practice_06_less_than_operator"
+  "Addition operator|stage_03_practice_07_addition_operator_tests|stage_03_practice_07_addition_operator"
+  "Stream output operator|stage_03_practice_08_stream_output_operator_tests|stage_03_practice_08_stream_output_operator"
+  "Compound assignment|stage_03_practice_09_compound_assignment_tests|stage_03_practice_09_compound_assignment"
+  "Const-correct API|stage_03_practice_10_const_correct_api_tests|stage_03_practice_10_const_correct_api"
 )
 
 if [[ ! -f "$build_dir/CMakeCache.txt" ]]; then

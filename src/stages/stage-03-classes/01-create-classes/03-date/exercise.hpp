@@ -20,6 +20,8 @@ private:
     int year_;
     int month_;
     int day_;
+
+    bool is_leap_year() const;
 };
 
 }  // namespace stage_03::classes::date_exercise

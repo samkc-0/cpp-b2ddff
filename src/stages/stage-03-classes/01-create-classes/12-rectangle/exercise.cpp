@@ -1,6 +1,7 @@
 #include "exercise.hpp"
 
 #include <stdexcept>
+#include <cmath>
 
 namespace stage_03::classes::rectangle_exercise {
 
@@ -10,13 +11,15 @@ namespace stage_03::classes::rectangle_exercise {
 //
 // Task: Implement Rectangle.
 Rectangle::Rectangle(double width, double height) : width_(width), height_(height) {
-    throw std::logic_error("TODO: implement Rectangle constructor");
 }
 
-double Rectangle::width() const { throw std::logic_error("TODO: implement width"); }
-double Rectangle::height() const { throw std::logic_error("TODO: implement height"); }
-double Rectangle::area() const { throw std::logic_error("TODO: implement area"); }
-double Rectangle::perimeter() const { throw std::logic_error("TODO: implement perimeter"); }
-bool Rectangle::is_square() const { throw std::logic_error("TODO: implement is_square"); }
+double Rectangle::width() const { return width_; }
+double Rectangle::height() const { return height_; }
+double Rectangle::area() const { return width_ * height_; }
+double Rectangle::perimeter() const { return 2 * width_ + 2 * height_; }
+bool Rectangle::is_square() const {
+    const double eps = 1e-9;
+    return std::abs(width_ - height_) < eps;
+}
 
 }  // namespace stage_03::classes::rectangle_exercise

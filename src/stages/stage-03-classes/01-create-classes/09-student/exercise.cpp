@@ -11,12 +11,19 @@ namespace stage_03::classes::student_exercise {
 //
 // Task: Implement Student with grade tracking.
 Student::Student(std::string name) : name_(std::move(name)) {
-    throw std::logic_error("TODO: implement Student constructor");
+    grades_ = std::vector<int>();
 }
 
-const std::string& Student::name() const { throw std::logic_error("TODO: implement name"); }
-void Student::add_grade(int grade) { (void)grade; throw std::logic_error("TODO: implement add_grade"); }
-double Student::average_grade() const { throw std::logic_error("TODO: implement average_grade"); }
-bool Student::has_passing_average() const { throw std::logic_error("TODO: implement has_passing_average"); }
+const std::string& Student::name() const { return name_; }
+void Student::add_grade(int grade) { grades_.push_back(grade); }
+double Student::average_grade() const {
+    if (grades_.empty())
+        return 0.0;
+    double s = 0;
+    for (auto g : grades_)
+        s += g;
+    return s / grades_.size();
+}
+bool Student::has_passing_average() const { return average_grade() > 50; }
 
 }  // namespace stage_03::classes::student_exercise

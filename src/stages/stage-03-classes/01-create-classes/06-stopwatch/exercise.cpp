@@ -10,14 +10,22 @@ namespace stage_03::classes::stopwatch_exercise {
 //
 // Task: Implement a deterministic Stopwatch class.
 Stopwatch::Stopwatch() : elapsed_seconds_(0), running_(false) {
-    throw std::logic_error("TODO: implement Stopwatch constructor");
 }
 
-void Stopwatch::start() { throw std::logic_error("TODO: implement start"); }
-void Stopwatch::stop() { throw std::logic_error("TODO: implement stop"); }
-void Stopwatch::reset() { throw std::logic_error("TODO: implement reset"); }
-void Stopwatch::tick(int seconds) { (void)seconds; throw std::logic_error("TODO: implement tick"); }
-int Stopwatch::elapsed_seconds() const { throw std::logic_error("TODO: implement elapsed_seconds"); }
-bool Stopwatch::is_running() const { throw std::logic_error("TODO: implement is_running"); }
+void Stopwatch::start() { running_ = true; }
+void Stopwatch::stop() { running_ = false; }
+void Stopwatch::reset() { elapsed_seconds_ = 0; }
+
+void Stopwatch::tick(int seconds) {
+    if (seconds < 0) {
+        throw std::logic_error("tick amount must not be negative");
+    }
+    if (running_) {
+        elapsed_seconds_ += seconds;
+    }
+}
+
+int Stopwatch::elapsed_seconds() const { return elapsed_seconds_; }
+bool Stopwatch::is_running() const { return running_; }
 
 }  // namespace stage_03::classes::stopwatch_exercise
